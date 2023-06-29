@@ -32,7 +32,7 @@ setuptools.setup(
      description="Python package d3blocks",
      long_description=long_description,
      long_description_content_type="text/markdown",
-     url="https://github.com/Anyaoha/anyaoha-d3blocks",
+     url="https://github.com/Anyaoha/anyaoha-d3blocksi",
 	 download_url = 'https://github.com/d3blocks/d3blocks/archive/'+new_version+'.tar.gz',
      packages=setuptools.find_packages(), # Searches throughout all dirs for files to include
      include_package_data=True, # Must be true to include files depicted in MANIFEST.in
