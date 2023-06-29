@@ -1,0 +1,47 @@
+<!--
+Library     : d3blocks
+Author      : E.Taskesen, O.Verver
+Mail        : erdogant@gmail.com, oliver@sensibly.nl
+Github      : https://github.com/d3blocks/d3blocks
+Licensed    : GPL3
+Forked      : Mike Bostock; https://observablehq.com/@d3/directed-chord-diagram
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ TITLE }}</title>
+</head>
+<body>
+
+
+<script>
+	{% include "chord.js" %}
+
+    const jsonData = {{ json_data }};
+
+    const data = jsonData.links.map(({source, target, value, opacity, color}) => ({
+        source: jsonData.nodes[source].name,
+        target: jsonData.nodes[target].name,
+        value,
+        opacity,
+        color,
+    }))
+
+    document.addEventListener('DOMContentLoaded', function () {
+        window.Chord({
+            data,
+			nodes: jsonData.nodes,
+            width: {{ WIDTH }},
+            height: {{ HEIGHT }},
+        });
+    });
+
+</script>
+<div id="chart"></div>
+
+{{ SUPPORT }}
+
+</body>
+</html>

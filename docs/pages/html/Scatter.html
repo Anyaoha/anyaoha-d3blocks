@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scatter &mdash; d3blocks d3blocks documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Violin" href="Violin.html" />
+    <link rel="prev" title="Imageslider" href="Imageslider.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            d3blocks
+          </a>
+              <div class="version">
+                1.2.12
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+    
+              <p class="caption" role="heading"><span class="caption-text">Motivation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Motivation.html">Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Motivation.html#why-bother-using-d3-js">Why bother using D3.js?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Motivation.html#d3-motivation">D3 Motivation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Motivation.html#d3-charts">D3 charts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Install from Pypi (pip)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html#install-from-github">Install from github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html#create-environment">Create environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html#uninstall">Uninstall</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Blocks</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Timeseries.html">Timeseries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chord.html">Chord</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d3graph.html">D3graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elasticgraph.html">Elasticgraph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sankey.html">Sankey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Heatmap.html">Heatmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MovingBubbles.html">MovingBubbles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Imageslider.html">Imageslider</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Scatter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#input-data">Input Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chart">Chart</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#default-scatterplot">Default scatterplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transitions-2-coordinates">Transitions (2 coordinates)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transitions-3-coordinates">Transitions (3 coordinates)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Violin.html">Violin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Particles.html">Particles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Treemap.html">Treemap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Helper functions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="helper_functions.html">vec2adjmat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="helper_functions.html#module-d3blocks.d3blocks.D3Blocks.adjmat2vec">adjmat2vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="helper_functions.html#module-d3blocks.d3blocks.D3Blocks.import_example">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Documentation.html">Sponsor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Documentation.html#medium-blog">Medium Blog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Documentation.html#github">Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Documentation.html#colab-notebook">Colab Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Coding%20quality.html">Coding quality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d3blocks.d3blocks.html">API References</a></li>
+</ul>
+
+    <a href= "genindex.html">Index</a>
+  
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">d3blocks</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Scatter</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Scatter.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="scatter">
+<h1>Scatter<a class="headerlink" href="#scatter" title="Permalink to this heading"></a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><a class="reference external" href="https://towardsdatascience.com/get-the-most-out-of-your-scatterplot-by-making-it-interactive-using-d3js-19939e3b046">Get the Most Out of Your Scatterplot by Making It Interactive Using D3js and Python.</a></p>
+</div>
+<hr class="docutils" />
+<span class="target" id="module-d3blocks.d3blocks.D3Blocks.scatter"></span><p>Scatterplot block.</p>
+<p>The scatter plot is perhaps the most well-known chart to plot x, and y coordinates. Basic charts are very
+useful from time to time, especially with the brushing and zooming capabilities. The scatter plots can be
+sample-wise colored and used to detect relationships between (groups of) variables.
+The input data frame should contain 2 columns (x and y) with the coordinates, and the index represents the
+class label.</p>
+<dl class="field-list simple">
+<dt class="field-odd">param x<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1d coordinates x-axis.</p>
+</dd>
+<dt class="field-even">type x<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy array</p>
+</dd>
+<dt class="field-odd">param y<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1d coordinates y-axis.</p>
+</dd>
+<dt class="field-even">type y<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy array</p>
+</dd>
+<dt class="field-odd">param x1<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Second set of 1d coordinates x-axis.</p>
+</dd>
+<dt class="field-even">type x1<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy array</p>
+</dd>
+<dt class="field-odd">param y1<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Second set of 1d coordinates y-axis.</p>
+</dd>
+<dt class="field-even">type y1<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy array</p>
+</dd>
+<dt class="field-odd">param x2<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Third set of 1d coordinates x-axis.</p>
+</dd>
+<dt class="field-even">type x2<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy array</p>
+</dd>
+<dt class="field-odd">param y2<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Third set of 1d coordinates y-axis.</p>
+</dd>
+<dt class="field-even">type y2<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy array</p>
+</dd>
+<dt class="field-odd">param jitter<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Add jitter to data points as random normal data. Values of 0.01 is usually good for one-hot data seperation.</p>
+</dd>
+<dt class="field-even">type jitter<span class="colon">:</span></dt>
+<dd class="field-even"><p>float, default: None</p>
+</dd>
+<dt class="field-odd">param size<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Size of the samples.</p>
+</dd>
+<dt class="field-even">type size<span class="colon">:</span></dt>
+<dd class="field-even"><p>list/array of with same size as (x,y).</p>
+</dd>
+<dt class="field-odd">param color<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p>‘#ffffff’ : All dots are get the same hex color.</p></li>
+<li><p>None: The same color as for c is applied.</p></li>
+<li><p>[‘#000000’, ‘#ffffff’,…]: list/array of hex colors with same size as (x,y)</p></li>
+</ul>
+</dd>
+<dt class="field-even">type color<span class="colon">:</span></dt>
+<dd class="field-even"><p>list/array of hex colors with same size as (x,y)</p>
+</dd>
+<dt class="field-odd">param stroke<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>Edgecolor of dotsize in hex colors.</dt><dd><ul class="simple">
+<li><p>‘#000000’ : All dots are get the same hex color.</p></li>
+<li><p>[‘#000000’, ‘#ffffff’,…]: list/array of hex colors with same size as (x,y)</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">type stroke<span class="colon">:</span></dt>
+<dd class="field-even"><p>list/array of hex colors with same size as (x,y)</p>
+</dd>
+<dt class="field-odd">param c_gradient<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>Make a lineair gradient based on the density for the particular class label.</dt><dd><ul class="simple">
+<li><p>‘#FFFFFF’</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">type c_gradient<span class="colon">:</span></dt>
+<dd class="field-even"><p>String, (default: None)</p>
+</dd>
+<dt class="field-odd">param opacity<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Opacity of the dot. Shoud be same size as (x,y)</p>
+</dd>
+<dt class="field-even">type opacity<span class="colon">:</span></dt>
+<dd class="field-even"><p>float or list/array [0-1]</p>
+</dd>
+<dt class="field-odd">param tooltip<span class="colon">:</span></dt>
+<dd class="field-odd"><p>labels of the samples.</p>
+</dd>
+<dt class="field-even">type tooltip<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of labels with same size as (x,y)</p>
+</dd>
+<dt class="field-odd">param cmap<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>All colors can be reversed with ‘_r’, e.g. ‘binary’ to ‘binary_r’</dt><dd><ul class="simple">
+<li><p>‘Set1’, ‘Set2’, ‘rainbow’, ‘bwr’, ‘binary’, ‘seismic’, ‘Blues’, ‘Reds’, ‘Pastel1’, ‘Paired’, ‘twilight’, ‘hsv’</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">type cmap<span class="colon">:</span></dt>
+<dd class="field-even"><p>String, (default: ‘inferno’)</p>
+</dd>
+<dt class="field-odd">param scale<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Scale datapoints. The default is False.</p>
+</dd>
+<dt class="field-even">type scale<span class="colon">:</span></dt>
+<dd class="field-even"><p>Bool, optional</p>
+</dd>
+<dt class="field-odd">param label_radio<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The labels used for the radiobuttons.</p>
+</dd>
+<dt class="field-even">type label_radio<span class="colon">:</span></dt>
+<dd class="field-even"><p>List [‘(x, y)’, ‘(x1, y1)’, ‘(x2, y2)’]</p>
+</dd>
+<dt class="field-odd">param set_xlim<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Width of the x-axis: The default is extracted from the data with 10% spacing.</p>
+</dd>
+<dt class="field-even">type set_xlim<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple, (default: [None, None])</p>
+</dd>
+<dt class="field-odd">param set_ylim<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Height of the y-axis: The default is extracted from the data with 10% spacing.</p>
+</dd>
+<dt class="field-even">type set_ylim<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple, (default: [None, None])</p>
+</dd>
+<dt class="field-odd">param title<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>Title of the figure.</dt><dd><ul class="simple">
+<li><p>‘Scatterplot’</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">type title<span class="colon">:</span></dt>
+<dd class="field-even"><p>String, (default: None)</p>
+</dd>
+<dt class="field-odd">param filepath<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>File path to save the output.</dt><dd><ul class="simple">
+<li><p>Temporarily path: ‘d3blocks.html’</p></li>
+<li><p>Relative path: ‘./d3blocks.html’</p></li>
+<li><p>Absolute path: ‘c://temp//d3blocks.html’</p></li>
+<li><p>None: Return HTML</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">type filepath<span class="colon">:</span></dt>
+<dd class="field-even"><p>String, (Default: user temp directory)</p>
+</dd>
+<dt class="field-odd">param figsize<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>Size of the figure in the browser, [width, height].</dt><dd><ul class="simple">
+<li><p>[900, 600]</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">type figsize<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+<dt class="field-odd">param showfig<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p>True: Open browser-window.</p></li>
+<li><p>False: Do not open browser-window.</p></li>
+</ul>
+</dd>
+<dt class="field-even">type showfig<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool, (default: True)</p>
+</dd>
+<dt class="field-odd">param overwrite<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p>True: Overwrite the html in the destination directory.</p></li>
+<li><p>False: Do not overwrite destination file but show warning instead.</p></li>
+</ul>
+</dd>
+<dt class="field-even">type overwrite<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool, (default: True)</p>
+</dd>
+<dt class="field-odd">param notebook<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p>True: Use IPython to show chart in notebook.</p></li>
+<li><p>False: Do not use IPython.</p></li>
+</ul>
+</dd>
+<dt class="field-even">type notebook<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">param reset_properties<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p>True: Reset the node_properties at each run.</p></li>
+<li><p>False: Use the d3.node_properties()</p></li>
+</ul>
+</dd>
+<dt class="field-even">type reset_properties<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool, (default: True)</p>
+</dd>
+<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>d3.node_properties</strong> (<em>DataFrame of dictionary</em>) – Contains properties of the unique input label/nodes/samples.</p></li>
+<li><p><strong>d3.edge_properties</strong> (<em>DataFrame of dictionary</em>) – Contains properties of the unique input edges/links.</p></li>
+<li><p><strong>d3.config</strong> (<em>dictionary</em>) – Contains configuration properties.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Load d3blocks</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">d3blocks</span> <span class="kn">import</span> <span class="n">D3Blocks</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Initialize</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d3</span> <span class="o">=</span> <span class="n">D3Blocks</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Load example data</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">d3</span><span class="o">.</span><span class="n">import_example</span><span class="p">(</span><span class="s1">&#39;cancer&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Set size and tooltip</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">size</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;survival_months&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span> <span class="o">/</span> <span class="mi">20</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tooltip</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;labels&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">+</span> <span class="s1">&#39; &lt;br /&gt; Survival: &#39;</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;survival_months&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Scatter plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d3</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+<span class="go">               df[&#39;y&#39;].values,</span>
+<span class="go">               size=size,</span>
+<span class="go">               color=df.index.values,</span>
+<span class="go">               stroke=&#39;#000000&#39;,</span>
+<span class="go">               opacity=0.4,</span>
+<span class="go">               tooltip=tooltip,</span>
+<span class="go">               filepath=&#39;scatter_demo.html&#39;,</span>
+<span class="go">               cmap=&#39;tab20&#39;)</span>
+</pre></div>
+</div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Scatter plot with transitions. Note that scale is set to True to make the axis comparible to each other</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d3</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+<span class="go">               df[&#39;y&#39;].values,</span>
+<span class="go">               x1=df[&#39;PC1&#39;].values,</span>
+<span class="go">               y1=df[&#39;PC2&#39;].values,</span>
+<span class="go">               label_radio=[&#39;tSNE&#39;, &#39;PCA&#39;],</span>
+<span class="go">               scale=True,</span>
+<span class="go">               size=size,</span>
+<span class="go">               color=df.index.values,</span>
+<span class="go">               stroke=&#39;#000000&#39;,</span>
+<span class="go">               opacity=0.4,</span>
+<span class="go">               tooltip=tooltip,</span>
+<span class="go">               filepath=&#39;scatter_transitions2.html&#39;,</span>
+<span class="go">               cmap=&#39;tab20&#39;)</span>
+</pre></div>
+</div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Scatter plot with transitions. Note that scale is set to True to make the axis comparible to each other</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d3</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+<span class="go">               df[&#39;y&#39;].values,</span>
+<span class="go">               x1=df[&#39;PC1&#39;].values,</span>
+<span class="go">               y1=df[&#39;PC2&#39;].values,</span>
+<span class="go">               x2=df[&#39;PC2&#39;].values,</span>
+<span class="go">               y2=df[&#39;PC1&#39;].values,</span>
+<span class="go">               label_radio=[&#39;tSNE&#39;, &#39;PCA&#39;, &#39;PCA_reverse&#39;],</span>
+<span class="go">               scale=True,</span>
+<span class="go">               size=size,</span>
+<span class="go">               color=df.index.values,</span>
+<span class="go">               stroke=&#39;#000000&#39;,</span>
+<span class="go">               opacity=0.4,</span>
+<span class="go">               tooltip=tooltip,</span>
+<span class="go">               filepath=&#39;scatter_transitions3.html&#39;,</span>
+<span class="go">               cmap=&#39;tab20&#39;)</span>
+</pre></div>
+</div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Load d3blocks</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">d3blocks</span> <span class="kn">import</span> <span class="n">D3Blocks</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Initialize</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d3</span> <span class="o">=</span> <span class="n">D3Blocks</span><span class="p">(</span><span class="n">chart</span><span class="o">=</span><span class="s1">&#39;Scatter&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Import example</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">d3</span><span class="o">.</span><span class="n">import_example</span><span class="p">(</span><span class="s1">&#39;cancer&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Set properties</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d3</span><span class="o">.</span><span class="n">set_edge_properties</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+<span class="go">                           df[&#39;y&#39;].values,</span>
+<span class="go">                           x1=df[&#39;PC1&#39;].values,</span>
+<span class="go">                           y1=df[&#39;PC2&#39;].values,</span>
+<span class="go">                           label_radio=[&#39;tSNE&#39;,&#39;PCA&#39;],</span>
+<span class="go">                           size=df[&#39;survival_months&#39;].fillna(1).values / 10,</span>
+<span class="go">                           color=df.index.values,</span>
+<span class="go">                           tooltip=df[&#39;labels&#39;].values + &#39; &lt;br /&gt; Survival: &#39; + df[&#39;survival_months&#39;].astype(str).str[0:4].values,</span>
+<span class="go">                           scale=True)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Show the chart</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d3</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Set specific node properties.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">d3</span><span class="o">.</span><span class="n">edge_properties</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d3</span><span class="o">.</span><span class="n">edge_properties</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;size&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">50</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d3</span><span class="o">.</span><span class="n">edge_properties</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;color&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;#000000&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d3</span><span class="o">.</span><span class="n">edge_properties</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;tooltip&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;I am adjusted!&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Configuration can be changed too.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">d3</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Show the chart again with adjustments</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d3</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://d3blocks.github.io/d3blocks/pages/html/Scatter.html">https://d3blocks.github.io/d3blocks/pages/html/Scatter.html</a></p></li>
+</ul>
+<section id="input-data">
+<h2>Input Data<a class="headerlink" href="#input-data" title="Permalink to this heading"></a></h2>
+<p>The input dataset are the x-coordinates and y-coordinates that needs to be specified seperately.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#                 x          y   age  ... labels</span>
+<span class="c1"># labels                              ...</span>
+<span class="c1"># acc     37.204296  24.162813  58.0  ...    acc</span>
+<span class="c1"># acc     37.093090  23.423557  44.0  ...    acc</span>
+<span class="c1"># acc     36.806297  23.444910  23.0  ...    acc</span>
+<span class="c1"># acc     38.067886  24.411770  30.0  ...    acc</span>
+<span class="c1"># acc     36.791195  21.715324  29.0  ...    acc</span>
+<span class="c1">#           ...        ...   ...  ...    ...</span>
+<span class="c1"># brca     0.839383  -8.870781   NaN  ...   brca</span>
+<span class="c1"># brca    -5.842904   2.877595   NaN  ...   brca</span>
+<span class="c1"># brca    -9.392038   1.663352  71.0  ...   brca</span>
+<span class="c1"># brca    -4.016389   6.260741   NaN  ...   brca</span>
+<span class="c1"># brca     0.229801  -8.227086   NaN  ...   brca</span>
+
+<span class="c1"># [4674 rows x 9 columns]</span>
+</pre></div>
+</div>
+</section>
+<section id="chart">
+<h2>Chart<a class="headerlink" href="#chart" title="Permalink to this heading"></a></h2>
+<section id="default-scatterplot">
+<h3>Default scatterplot<a class="headerlink" href="#default-scatterplot" title="Permalink to this heading"></a></h3>
+<iframe src="https://erdogant.github.io\docs\d3blocks\scatter.html" height="600px" width="775px", frameBorder="0"></iframe></section>
+<section id="transitions-2-coordinates">
+<h3>Transitions (2 coordinates)<a class="headerlink" href="#transitions-2-coordinates" title="Permalink to this heading"></a></h3>
+<iframe src="https://erdogant.github.io\docs\d3blocks\scatter_transitions2.html" height="600px" width="775px", frameBorder="0"></iframe></section>
+<section id="transitions-3-coordinates">
+<h3>Transitions (3 coordinates)<a class="headerlink" href="#transitions-3-coordinates" title="Permalink to this heading"></a></h3>
+<iframe src="https://erdogant.github.io\docs\d3blocks\scatter_transitions3.html" height="600px" width="775px", frameBorder="0"></iframe><hr>
+<center>
+        <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+        <!-- Show an image ad -->
+        <!-- <div data-ea-publisher="erdogantgithubio" data-ea-type="image"></div> -->
+        <div data-ea-publisher="erdogantgithubio" data-ea-type="image" data-ea-style="stickybox"></div>
+</center>
+<hr></section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Imageslider.html" class="btn btn-neutral float-left" title="Imageslider" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Violin.html" class="btn btn-neutral float-right" title="Violin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Erdogan Taskesen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

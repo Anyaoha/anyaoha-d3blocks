@@ -1,0 +1,46 @@
+<!--
+Library     : d3blocks
+Author      : E.Taskesen
+Mail        : erdogant@gmail.com
+Github      : https://github.com/d3blocks/d3blocks
+License     : GPL3
+Forked      : Mike Bostock; https://bl.ocks.org/mbostock/34f08d5e11952a80609169b7917d4172
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{ TITLE }}</title>
+{{ SUPPORT }}
+
+<style>
+    {% include "style.css" %}
+
+    body {
+      font: {{ FONTSIZE }} sans-serif;
+    }
+
+</style>
+</head>
+<body>
+
+<script>
+{% include "d3.v3.js" %}
+{% include "script.js" %}
+
+    // Load data and let's do it.
+    var data = {{ json_data }}
+
+    window.addEventListener('DOMContentLoaded', function () {
+      timeseries(data, {
+          COLOR: [{{ COLOR }}],
+          TITLE: "{{ TITLE }}",
+          DT_FORMAT: "{{ DT_FORMAT }}"
+      });
+    })
+
+</script>
+
+</body>
+</html>

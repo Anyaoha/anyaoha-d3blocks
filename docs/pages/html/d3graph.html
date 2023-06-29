@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>D3graph &mdash; d3blocks d3blocks documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Elasticgraph" href="elasticgraph.html" />
+    <link rel="prev" title="Chord" href="Chord.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            d3blocks
+          </a>
+              <div class="version">
+                1.2.12
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+    
+              <p class="caption" role="heading"><span class="caption-text">Motivation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Motivation.html">Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Motivation.html#why-bother-using-d3-js">Why bother using D3.js?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Motivation.html#d3-motivation">D3 Motivation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Motivation.html#d3-charts">D3 charts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Install from Pypi (pip)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html#install-from-github">Install from github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html#create-environment">Create environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html#uninstall">Uninstall</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Blocks</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Timeseries.html">Timeseries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chord.html">Chord</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">D3graph</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#input-data">Input Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#charts">Charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#default">Default</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#change-node-properties">Change node properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#change-edge-properties">Change Edge properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="elasticgraph.html">Elasticgraph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sankey.html">Sankey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Heatmap.html">Heatmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MovingBubbles.html">MovingBubbles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Imageslider.html">Imageslider</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scatter.html">Scatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Violin.html">Violin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Particles.html">Particles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Treemap.html">Treemap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Helper functions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="helper_functions.html">vec2adjmat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="helper_functions.html#module-d3blocks.d3blocks.D3Blocks.adjmat2vec">adjmat2vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="helper_functions.html#module-d3blocks.d3blocks.D3Blocks.import_example">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Documentation.html">Sponsor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Documentation.html#medium-blog">Medium Blog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Documentation.html#github">Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Documentation.html#colab-notebook">Colab Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Coding%20quality.html">Coding quality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d3blocks.d3blocks.html">API References</a></li>
+</ul>
+
+    <a href= "genindex.html">Index</a>
+  
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">d3blocks</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">D3graph</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/d3graph.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="d3graph">
+<h1>D3graph<a class="headerlink" href="#d3graph" title="Permalink to this heading"></a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><a class="reference external" href="https://towardsdatascience.com/creating-beautiful-stand-alone-interactive-d3-charts-with-python-804117cb95a7">Read the Medium blog for more details about creating beautiful stand-alone interactive D3 charts with Python.</a></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page contains a summary of the possiblities what you can do with D3graph. More details can be found on the <a class="reference external" href="https://erdogant.github.io/d3graph">D3graph documentation pages</a>.</p>
+</div>
+<hr class="docutils" />
+<span class="target" id="module-d3blocks.d3blocks.D3Blocks.d3graph"></span><p>d3graph block.</p>
+<p>d3graph is integrated in d3blocks and is to create interactive and stand-alone D3 force-directed graphs.
+The input data is a dataframe containing source, target, and weight. In underneath example, we load the energy
+dataset which contains 68 relationships that are stored in a DataFrame with the columns source, target, and weight.
+The nodes are colored based on the Louvain heuristics which is the partition of highest modularity, i.e.
+the highest partition of the dendrogram generated by the Louvain algorithm. The strength of the edges is based
+on the weights. To explore the network, and the strength of the edges more extensively, the slider
+(located at the top) can break the network based on the edge weights. The ouput is a html file that is
+interactive and stand alone. For demonstration purposes, the “energy” and “stormofswords” dataset can be used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">param df<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>Input data containing the following columns:</dt><dd><ul class="simple">
+<li><p>‘source’</p></li>
+<li><p>‘target’</p></li>
+<li><p>‘weight’</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">type df<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame()</p>
+</dd>
+<dt class="field-odd">param color<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>Color of the node.</dt><dd><ul class="simple">
+<li><p>‘cluster’ : Colours are based on the community distance clusters.</p></li>
+<li><p>None: All nodes will have the same color (auto generated).</p></li>
+<li><p>[‘#000000’]: All nodes will have the same hex color.</p></li>
+<li><p>[‘#377eb8’,’#ffffff’,’#000000’,…]: Hex colors are directly used.</p></li>
+<li><p>[‘A’]: All nodes will have hte same color. Color is generated on CMAP and the unique labels.</p></li>
+<li><p>[‘A’,’A’,’B’,…]:  Colors are generated using cmap and the unique labels accordingly colored.</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">type color<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of strings (default: ‘#000080’)</p>
+</dd>
+<dt class="field-odd">param size<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>Size of the nodes.</dt><dd><ul class="simple">
+<li><p>10: all nodes sizes are set to 10</p></li>
+<li><p>[10, 5, 3, 1, …]: Specify node sizes</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">type size<span class="colon">:</span></dt>
+<dd class="field-even"><p>array of integers (default: 5)</p>
+</dd>
+<dt class="field-odd">param collision<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Response of the network. Higher means that more collisions are prevented.</p>
+</dd>
+<dt class="field-even">type collision<span class="colon">:</span></dt>
+<dd class="field-even"><p>float, (default: 0.5)</p>
+</dd>
+<dt class="field-odd">param charge<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Edge length of the network. Towards zero becomes a dense network. Higher make edges longer.</p>
+</dd>
+<dt class="field-even">type charge<span class="colon">:</span></dt>
+<dd class="field-even"><p>int, (default: 400)</p>
+</dd>
+<dt class="field-odd">param slider<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Slider is automatically set to the range of the edge weights.</p>
+</dd>
+<dt class="field-even">type slider<span class="colon">:</span></dt>
+<dd class="field-even"><p>typle [min: int, max: int]:, (default: [None, None])</p>
+</dd>
+<dt class="field-odd">param title<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>Title of the figure.</dt><dd><ul class="simple">
+<li><p>‘d3graph’</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">type title<span class="colon">:</span></dt>
+<dd class="field-even"><p>String, (default: None)</p>
+</dd>
+<dt class="field-odd">param filepath<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>File path to save the output.</dt><dd><ul class="simple">
+<li><p>Temporarily path: ‘d3blocks.html’</p></li>
+<li><p>Relative path: ‘./d3blocks.html’</p></li>
+<li><p>Absolute path: ‘c://temp//d3blocks.html’</p></li>
+<li><p>None: Return HTML</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">type filepath<span class="colon">:</span></dt>
+<dd class="field-even"><p>String, (Default: user temp directory)</p>
+</dd>
+<dt class="field-odd">param figsize<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>Size of the figure in the browser, [width, height].</dt><dd><ul class="simple">
+<li><p>[1500, 800]</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">type figsize<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+<dt class="field-odd">param showfig<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p>True: Open browser-window.</p></li>
+<li><p>False: Do not open browser-window.</p></li>
+</ul>
+</dd>
+<dt class="field-even">type showfig<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool, (default: True)</p>
+</dd>
+<dt class="field-odd">param notebook<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p>True: Use IPython to show chart in notebook.</p></li>
+<li><p>False: Do not use IPython.</p></li>
+</ul>
+</dd>
+<dt class="field-even">type notebook<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">param overwrite<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p>True: Overwrite the html in the destination directory.</p></li>
+<li><p>False: Do not overwrite destination file but show warning instead.</p></li>
+</ul>
+</dd>
+<dt class="field-even">type overwrite<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool, (default: True)</p>
+</dd>
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Load library</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">d3blocks</span> <span class="kn">import</span> <span class="n">D3Blocks</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Initialize</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d3</span> <span class="o">=</span> <span class="n">D3Blocks</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Import example</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">d3</span><span class="o">.</span><span class="n">import_example</span><span class="p">(</span><span class="s1">&#39;energy&#39;</span><span class="p">)</span> <span class="c1"># &#39;bigbang&#39;, &#39;stormofswords&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create network using default</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d3</span><span class="o">.</span><span class="n">d3graph</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">filepath</span><span class="o">=</span><span class="s1">&#39;d3graph.html&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Change scaler</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d3</span><span class="o">.</span><span class="n">d3graph</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">scaler</span><span class="o">=</span><span class="s1">&#39;minmax&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Change node properties</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d3</span><span class="o">.</span><span class="n">D3graph</span><span class="o">.</span><span class="n">set_node_properties</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d3</span><span class="o">.</span><span class="n">D3graph</span><span class="o">.</span><span class="n">node_properties</span><span class="p">[</span><span class="s1">&#39;Solar&#39;</span><span class="p">][</span><span class="s1">&#39;size&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">30</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d3</span><span class="o">.</span><span class="n">D3graph</span><span class="o">.</span><span class="n">node_properties</span><span class="p">[</span><span class="s1">&#39;Solar&#39;</span><span class="p">][</span><span class="s1">&#39;color&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;#FF0000&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d3</span><span class="o">.</span><span class="n">D3graph</span><span class="o">.</span><span class="n">node_properties</span><span class="p">[</span><span class="s1">&#39;Solar&#39;</span><span class="p">][</span><span class="s1">&#39;edge_color&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;#000000&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d3</span><span class="o">.</span><span class="n">D3graph</span><span class="o">.</span><span class="n">node_properties</span><span class="p">[</span><span class="s1">&#39;Solar&#39;</span><span class="p">][</span><span class="s1">&#39;edge_size&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d3</span><span class="o">.</span><span class="n">D3graph</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Change edge properties</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d3</span><span class="o">.</span><span class="n">D3graph</span><span class="o">.</span><span class="n">set_edge_properties</span><span class="p">(</span><span class="n">directed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">marker_end</span><span class="o">=</span><span class="s1">&#39;arrow&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d3</span><span class="o">.</span><span class="n">D3graph</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Node properties</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d3</span><span class="o">.</span><span class="n">D3graph</span><span class="o">.</span><span class="n">node_properties</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Node properties</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d3</span><span class="o">.</span><span class="n">D3graph</span><span class="o">.</span><span class="n">edge_properties</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># After making changes, show the graph again using show()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d3</span><span class="o">.</span><span class="n">D3graph</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<ul class="simple">
+<li><p>Blog: <a class="reference external" href="https://towardsdatascience.com/creating-beautiful-stand-alone-interactive-d3-charts-with-python-804117cb95a7">https://towardsdatascience.com/creating-beautiful-stand-alone-interactive-d3-charts-with-python-804117cb95a7</a></p></li>
+<li><p>Github : <a class="reference external" href="https://github.com/erdogant/d3graph">https://github.com/erdogant/d3graph</a></p></li>
+<li><p>Documentation: <a class="reference external" href="https://erdogant.github.io/d3graph/">https://erdogant.github.io/d3graph/</a></p></li>
+</ul>
+<section id="input-data">
+<h2>Input Data<a class="headerlink" href="#input-data" title="Permalink to this heading"></a></h2>
+<p>The input dataset is a DataFrame with three column, source, target and weight.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#                      source            target   weight</span>
+<span class="c1"># 0      Agricultural &#39;waste&#39;    Bio-conversion  124.729</span>
+<span class="c1"># 1            Bio-conversion            Liquid    0.597</span>
+<span class="c1"># 2            Bio-conversion            Losses   26.862</span>
+<span class="c1"># 3            Bio-conversion             Solid  280.322</span>
+<span class="c1"># 4            Bio-conversion               Gas   81.144</span>
+<span class="c1"># ..                      ...               ...      ...</span>
+<span class="c1"># 63       Thermal generation  District heating   79.329</span>
+<span class="c1"># 64                    Tidal  Electricity grid    9.452</span>
+<span class="c1"># 65  UK land based bioenergy    Bio-conversion  182.010</span>
+<span class="c1"># 66                     Wave  Electricity grid   19.013</span>
+<span class="c1"># 67                     Wind  Electricity grid  289.366</span>
+
+<span class="c1"># [68 rows x 3 columns]</span>
+</pre></div>
+</div>
+</section>
+<section id="charts">
+<h2>Charts<a class="headerlink" href="#charts" title="Permalink to this heading"></a></h2>
+<section id="default">
+<h3>Default<a class="headerlink" href="#default" title="Permalink to this heading"></a></h3>
+<iframe src="https://erdogant.github.io\docs\d3blocks\d3graph_example1.html" height="800px" width="775px", frameBorder="0"></iframe></section>
+<section id="change-node-properties">
+<h3>Change node properties<a class="headerlink" href="#change-node-properties" title="Permalink to this heading"></a></h3>
+<iframe src="https://erdogant.github.io\docs\d3blocks\d3graph_example2.html" height="800px" width="775px", frameBorder="0"></iframe></section>
+<section id="change-edge-properties">
+<h3>Change Edge properties<a class="headerlink" href="#change-edge-properties" title="Permalink to this heading"></a></h3>
+<iframe src="https://erdogant.github.io\docs\d3blocks\d3graph_example3.html" height="775px" width="775px", frameBorder="0"></iframe><hr>
+<center>
+        <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+        <!-- Show an image ad -->
+        <!-- <div data-ea-publisher="erdogantgithubio" data-ea-type="image"></div> -->
+        <div data-ea-publisher="erdogantgithubio" data-ea-type="image" data-ea-style="stickybox"></div>
+</center>
+<hr></section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Chord.html" class="btn btn-neutral float-left" title="Chord" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="elasticgraph.html" class="btn btn-neutral float-right" title="Elasticgraph" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Erdogan Taskesen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
