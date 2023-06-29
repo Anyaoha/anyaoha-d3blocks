@@ -534,13 +534,13 @@ def write_html_file(config, html, logger):
             f.write(html)
 
 
-def get_support(support = None):
-    script=''
-    if isinstance(support, bool) and (not support): support = None
-    if isinstance(support, bool) and support: support = 'text'
-    if support is not None:
-        script="<script async src='https://media.ethicalads.io/media/client/ethicalads.min.js'></script>"
-        script = script + '\n' + "<div data-ea-publisher='erdogantgithubio' data-ea-type='{TYPE}' data-ea-style='stickybox'></div>".replace('{TYPE}', support)
+#def get_support(support = None):
+#    script=''
+#    if isinstance(support, bool) and (not support): support = None
+#    if isinstance(support, bool) and support: support = 'text'
+#    if support is not None:
+#        script="<script async src='https://media.ethicalads.io/media/client/ethicalads.min.js'></script>"
+#        script = script + '\n' + "<div data-ea-publisher='erdogantgithubio' data-ea-type='{TYPE}' data-ea-style='stickybox'></div>".replace('{TYPE}', support)
 
     # Return
-    return script
+#    return script
