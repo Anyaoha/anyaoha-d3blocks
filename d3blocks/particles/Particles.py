@@ -63,7 +63,7 @@ def write_html(X, config, logger):
         'FONTSIZE': config['fontsize'],
         'SPACING': config['spacing'],
         'CMAP': config['cmap'],
-        #'SUPPORT': config['support'], 
+        #'SUPPORT': config['support'],
     }
 
     try:
