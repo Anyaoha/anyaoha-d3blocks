@@ -364,7 +364,7 @@ def write_html(X, config, logger=None):
         'START_HOUR_MIN': config['start_hour'] + (config['start_minute'] / 60),
         'START_TIME': zero_to_hour + str(config['start_hour']) + ":" + zero_to_min + str(config['start_minute']),
 
-        'SUPPORT': config['support'],
+        #'SUPPORT': config['support'],
 
     }
 
