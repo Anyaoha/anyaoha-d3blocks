@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p align="center">
   <a href="https://d3blocks.github.io/d3blocks/pages/html/index.html">
   <img src="https://github.com/d3blocks/d3blocks/blob/main/logo.png" align="center" width="600" /> 
@@ -79,3 +80,7 @@ d3 = D3Blocks()
 #### References
 * [bl.ocks](https://bl.ocks.org/)
 * [observablehq](https://observablehq.com/top)
+=======
+# anyaoha-d3blocks
+A modified Python library to create stand-alone and interactive d3 charts. 
+>>>>>>> a876c5f7b9da7a0d83a713fb73910132206a1d57
