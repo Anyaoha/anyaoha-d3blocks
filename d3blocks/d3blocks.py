@@ -86,7 +86,7 @@ class D3Blocks():
 
     """
 
-    def __init__(self, chart: str = None, frame: bool = True, verbose: int = 20, support='text'):
+    def __init__(self, chart: str = None, frame: bool = True, verbose: int = 20):#, support='text'):
         """Initialize d3blocks with user-defined parameters."""
         # Set the logger
         if chart is not None: chart = str.capitalize(chart)
@@ -101,7 +101,7 @@ class D3Blocks():
         # Initialize empty config
         self.config['chart'] = chart
         self.config['frame'] = frame
-        self.config['support'] = utils.get_support(support)
+        #self.config['support'] = utils.get_support(support)
         self.config['curpath'] = os.path.dirname(os.path.abspath(__file__))
 
     def particles(self,
@@ -1648,7 +1648,7 @@ class D3Blocks():
                 slider=[None, None],
                 notebook=False,
                 showfig=True,
-                support='text',
+                #support='text',
                 overwrite=True):
         """d3graph block.
 
@@ -1777,7 +1777,7 @@ class D3Blocks():
         # Remvove quotes from source-target labels
         df = utils.remove_quotes(df)
         # Initialize network graph
-        self.D3graph = d3network.d3graph(collision=collision, charge=charge, slider=slider, support=support)
+        self.D3graph = d3network.d3graph(collision=collision, charge=charge, slider=slider)#, support=support)
         # Convert vector to adjmat
         adjmat = d3network.vec2adjmat(df['source'], df['target'], weight=df['weight'])
         # Create default graph
@@ -2241,9 +2241,9 @@ class D3Blocks():
             # Remove all configurations except for the chart, frame and path
             chart = self.config.get('chart', None)
             frame = self.config.get('frame', True)
-            support = self.config.get('support', 'text')
+            #support = self.config.get('support', 'text')
             curpath = self.config.get('curpath', os.path.dirname(os.path.abspath(__file__)))
-            self.config = {'chart': chart, 'frame': frame, 'curpath': curpath, 'notebook': False, 'support': support}
+            self.config = {'chart': chart, 'frame': frame, 'curpath': curpath, 'notebook': False}#, 'support': support}
 
     @staticmethod
     def vec2adjmat(source, target, weight=None, symmetric=True, aggfunc='sum'):
